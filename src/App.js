@@ -14,6 +14,8 @@ import CreatePage from './CreatePage';
 import './App.css';
 
 function App() {
+  const [email, setEmail] = useState('');
+  const [token, setToken] = useState('');
   return (
     <div className="App">
       <header className="App-header">
