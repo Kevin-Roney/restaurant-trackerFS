@@ -1,4 +1,16 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
+import { getUser, logout } from './services/fetch-utils';
+import {
+  BrowserRouter as Router,
+  Switch,
+  NavLink,
+  Route,
+  Redirect,
+} from 'react-router-dom';
+import AuthPage from './AuthPage';
+import UpdatePage from './UpdatePage';
+import RestaurantList from './RestaurantList';
+import CreatePage from './CreatePage';
 import './App.css';
 
 function App() {
