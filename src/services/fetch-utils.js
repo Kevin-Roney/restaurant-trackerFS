@@ -17,7 +17,6 @@ export async function signIn(email, password){
   return response.user;
 }
 
-
 export async function logout() {
   await client.auth.signOut();
 
@@ -32,7 +31,6 @@ export async function createRestaurant(restaurant){
   return checkError(response);
 }
 
-
 export async function getRestaurants() {
   const response = await client
     .from('restaurant_tracker')
@@ -41,8 +39,6 @@ export async function getRestaurants() {
 
   return checkError(response);    
 }
-
-
 
 export async function getRestaurantById(id) {
   const response = await client
@@ -54,7 +50,7 @@ export async function getRestaurantById(id) {
   return checkError(response);    
 }
 
-export async function updateRestaurants,(id, newRestaurant) {
+export async function updateRestaurants(id, newRestaurant) {
   const response = await client
     .from('restaurant_tracker')
     .update(newRestaurant)
