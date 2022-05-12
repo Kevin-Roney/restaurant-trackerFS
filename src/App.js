@@ -28,6 +28,13 @@ function App() {
     }
     loadUser();
   }, []);
+
+  async function handleLogout() {
+    await logout();
+    setEmail('');
+    setToken('');
+  }
+  
   return (
     <div className="App">
       <header className="App-header">
