@@ -21,7 +21,7 @@ export default function CreatePage() {
   }
 
   return (
-    <div>
+    <div className='create'>
       <form onSubmit={handleSubmit}>
         <h2>Add Restaurant</h2>
         <label>

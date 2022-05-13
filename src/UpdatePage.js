@@ -30,7 +30,7 @@ export default function UpdatePage() {
   }
 
   return (
-    <div>
+    <div className='create'>
       <form onSubmit={handleSubmit}>
         <h2>Update {restaurantInForm.name}</h2>
         <label>

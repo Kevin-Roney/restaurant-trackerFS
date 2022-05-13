@@ -12,6 +12,7 @@ import UpdatePage from './UpdatePage';
 import RestaurantList from './RestaurantList';
 import CreatePage from './CreatePage';
 import './App.css';
+import logo from './logo.png';
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
     <Router>
       <div className="App">
         <header className="App-header">
+          <img className='logo' src={logo}/>
           {
             token
               ? <>
