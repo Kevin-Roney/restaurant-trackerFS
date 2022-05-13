@@ -46,7 +46,6 @@ export default function CreatePage() {
         </label>
         <label>
             Description
-          {/* on change, set the description in state */}
           <select required value={restaurantInForm.kid_friendly} name='description' onChange={(e) => setRestaurantInForm({ ...restaurantInForm, kid_friendly: e.target.value })}>
             <option value={true}>Yes</option>
             <option value={false}>No</option>

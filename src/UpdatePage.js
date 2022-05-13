@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { getRestaurantById } from './services/fetch-utils';
+import { getRestaurantById, updateRestaurants } from './services/fetch-utils';
 
 export default function UpdatePage() {
 
@@ -17,7 +17,7 @@ export default function UpdatePage() {
 
   useEffect(() => {
     async function fetch() {
-      const restaurantData = await getRestaurantById();
+      const restaurantData = await getRestaurantById(id);
       setRestaurantInForm(restaurantData);
     }
     fetch();
@@ -25,10 +25,43 @@ export default function UpdatePage() {
   
   async function handleSubmit(e) {
     e.preventDefault();
+    await updateRestaurants(id, restaurantInForm);
     push('/restaurants');
   }
-  
+
   return (
-    <div>UpdatePage</div>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <h2>Update {restaurantInForm.name}</h2>
+        <label>
+            Name
+          <input required value={restaurantInForm.name} name='title' onChange={(e) => setRestaurantInForm({ ...restaurantInForm, name: e.target.value })}/>
+        </label>
+        <label>
+            Location
+          <input required value={restaurantInForm.location} name='title' onChange={(e) => setRestaurantInForm({ ...restaurantInForm, location: e.target.value })}/>
+        </label>
+        <label>
+            Cuisine
+          <input required value={restaurantInForm.cuisine} name='title' onChange={(e) => setRestaurantInForm({ ...restaurantInForm, cuisine: e.target.value })}/>
+        </label>
+        <label>
+            Yelp Score
+          <input required value={restaurantInForm.yelp_score} name='title' onChange={(e) => setRestaurantInForm({ ...restaurantInForm, yelp_score: e.target.value })}/>
+        </label>
+        <label>
+            Google Maps Score
+          <input required value={restaurantInForm.google_score} name='title' onChange={(e) => setRestaurantInForm({ ...restaurantInForm, google_score: e.target.value })}/>
+        </label>
+        <label>
+            Description
+          <select required value={restaurantInForm.kid_friendly} name='description' onChange={(e) => setRestaurantInForm({ ...restaurantInForm, kid_friendly: e.target.value })}>
+            <option value={true}>Yes</option>
+            <option value={false}>No</option>
+          </select>
+        </label>
+        <button>Update {restaurantInForm.name}</button>
+      </form>
+    </div>
   );
 }
