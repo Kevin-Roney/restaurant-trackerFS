@@ -14,6 +14,14 @@ export default function UpdatePage() {
     google_score: 0,
     kid_friendly: false,
   });
+
+  useEffect(() => {
+    async function fetch() {
+      const restaurantData = await getRestaurantById();
+      setRestaurantInForm(restaurantData);
+    }
+    fetch();
+  }, [id]);
   
   return (
     <div>UpdatePage</div>
