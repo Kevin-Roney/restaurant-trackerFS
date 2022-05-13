@@ -6,14 +6,21 @@ import Restaurant from './Restaurant';
 export default function RestaurantList() {
 
   const [restaurants, setRestaurants] = useState([]);
-  
+
   useEffect(() => {
     async function fetch() {
       const restaurantData = await getRestaurants();
       setRestaurants(restaurantData);
     }
+    fetch();
   }, []);
   return (
-    <div>RestaurantList</div>
+    <div className='list restaurants'>
+      <h1>Restaurant List</h1>
+      {
+        restaurants.map((restaurant) =>
+          <Restaurant key={restaurant.id} restaurant={restaurant}/>)
+      }
+    </div>
   );
 }
