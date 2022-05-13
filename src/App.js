@@ -15,7 +15,7 @@ import './App.css';
 
 function App() {
 
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(''); //eslint-disable-line
   const [token, setToken] = useState('');
 
   useEffect(() => {
@@ -57,6 +57,42 @@ function App() {
               : <></>
           }
         </header>
+        <main>
+          <Switch>
+            <Route exact path='/'>
+              {
+                token
+                  ? <Redirect to='/restaurants' />
+                  : <AuthPage 
+                    getUser={getUser}
+                    setEmail={setEmail}
+                    setToken={setToken} 
+                  />
+              }
+            </Route>
+            <Route exact path='/restaurants'>
+              {
+                token
+                  ? <RestaurantList />
+                  : <Redirect to='/' />
+              }
+            </Route>
+            <Route exact path='/create'>
+              {
+                token
+                  ? <CreatePage />
+                  : <Redirect to='/' />
+              }
+            </Route>
+            <Route exact path='/restaurants/:id'>
+              {
+                token
+                  ? <UpdatePage />
+                  : <Redirect to='/' />
+              }
+            </Route>
+          </Switch>
+        </main>
       </div>
     </Router>
   );
