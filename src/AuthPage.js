@@ -25,7 +25,7 @@ export default function AuthPage({ setEmail, setToken, getUser }) {
 
   return (
     <div className='auth'>
-      <h1>Restaurant List</h1>
+      <h1>Restaurant Tracker</h1>
       <form onSubmit={handleSignUp}>
         <label>
                 Email

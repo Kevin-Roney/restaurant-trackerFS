@@ -16,7 +16,7 @@ export default function RestaurantList() {
   }, []);
   return (
     <div className='list restaurants'>
-      <h1>Restaurant List</h1>
+      <h1>Restaurant Tracker</h1>
       {
         restaurants.map((restaurant) =>
           <Restaurant key={restaurant.id} {...restaurant}/>)
