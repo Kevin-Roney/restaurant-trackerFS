@@ -19,7 +19,7 @@ export default function RestaurantList() {
       <h1>Restaurant List</h1>
       {
         restaurants.map((restaurant) =>
-          <Restaurant key={restaurant.id} restaurant={restaurant}/>)
+          <Restaurant key={restaurant.id} {...restaurant}/>)
       }
     </div>
   );
