@@ -13,7 +13,13 @@ export default function CreatePage() {
     google_score: 0,
     kid_friendly: false,
   });
-  
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    await createRestaurant(restaurantInForm);
+    history.push('/restaurants');
+  }
+
   return (
     <div>CreatePage</div>
   );

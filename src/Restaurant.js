@@ -10,7 +10,7 @@ export default function Restaurant({
   kid_friendly,
   id }) {
   return (
-    <Link className='restaurant' to={`/restaurants.${id}`}>
+    <Link className='restaurant' to={`/restaurants/${id}`}>
       <h3>{name}</h3>
       <p>Cuisine: {cuisine}</p>
       <p>Neighborhood: {location}</p>
