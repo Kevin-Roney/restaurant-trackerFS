@@ -23,6 +23,11 @@ export default function UpdatePage() {
     fetch();
   }, [id]);
   
+  async function handleSubmit(e) {
+    e.preventDefault();
+    push('/restaurants');
+  }
+  
   return (
     <div>UpdatePage</div>
   );
